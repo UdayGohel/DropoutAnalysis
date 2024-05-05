@@ -160,15 +160,15 @@ The Dropout Analysis and Intervention System is a comprehensive solution aimed a
 ### Resource Optimization:
 
 - Efficiently allocate resources to schools and areas with the highest dropout rates.
-### Search functionality:
+### Reduced Dropout Rates:
 
-- Users can search for repositories by name or descriptions or topics.
-### Sorting functionality:
+- Targeted interventions will contribute to a significant reduction in dropout rates.
+### Social Inclusion:
 
-- Users can sort repositories by stars, forks, or language.
-### View Repositories Issues:
+- Address gender, caste, and age-related disparities for a more inclusive education system.
+### Data-Driven Decision-Making:
 
-- Users can gain insights into a repository by clicking on it. This includes viewing basic details and the top 5 reported issues..
+- Encourage evidence-based decision-making for sustainable improvements.
 
 ## Features
 
@@ -203,4 +203,3 @@ Utilizes regional heatmaps to identify high-risk areas for targeted intervention
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
 
 We appreciate your contributions and look forward to working with you!
-
