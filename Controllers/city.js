@@ -1,7 +1,7 @@
-const cityModel = require("../models/CityModel");
-const StateModel = require("../models/StateModel");
-const DistrictModel = require("../models/DistrictModel");
-const TalukaModel = require("../models/TalukaModel");
+const cityModel = require("../Models/CityModel");
+const StateModel = require("../Models/StateModel");
+const DistrictModel = require("../Models/DistrictModel");
+const TalukaModel = require("../Models/TalukaModel");
 
 async function getCities(req, res) {
   try {

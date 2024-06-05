@@ -1,4 +1,4 @@
-const ReasonModel = require("./../models/ReasonModel");
+const ReasonModel = require("./../Models/ReasonModel");
 const mongoose = require("mongoose");
 async function addReason(req, res) {
   // let pdf = [];

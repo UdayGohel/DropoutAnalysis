@@ -1,4 +1,4 @@
-const analysisController = require("../controllers/analysisController");
+const analysisController = require("../Controllers/analysisController");
 const express = require("express");
 const router = express.Router();
 

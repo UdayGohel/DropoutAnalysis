@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const StudentController = require("../controllers/studentController");
+const StudentController = require("../Controllers/studentController");
 const multer = require("multer");
-const StudentModel = require("../models/StudentModel");
+const StudentModel = require("../Models/StudentModel");
 const { default: mongoose } = require("mongoose");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });

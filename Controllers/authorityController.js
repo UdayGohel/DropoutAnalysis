@@ -1,9 +1,9 @@
-const schoolModel = require("../models/SchoolModel");
-const stateModel = require("../models/StateModel");
-const districtModel = require("../models/DistrictModel");
-const talukaModel = require("../models/TalukaModel");
-const cityModel = require("../models/CityModel");
-const studentModel = require("../models/StudentModel");
+const schoolModel = require("../Models/SchoolModel");
+const stateModel = require("../Models/StateModel");
+const districtModel = require("../Models/DistrictModel");
+const talukaModel = require("../Models/TalukaModel");
+const cityModel = require("../Models/CityModel");
+const studentModel = require("../Models/StudentModel");
 const { default: mongoose } = require("mongoose");
 
 async function dashboardCount(req, res) {

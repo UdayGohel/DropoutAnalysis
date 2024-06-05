@@ -1,5 +1,5 @@
 const express = require("express");
-const reasonController = require("../controllers/reasonController");
+const reasonController = require("../Controllers/reasonController");
 const router = express.Router();
 const multer = require("multer");
 

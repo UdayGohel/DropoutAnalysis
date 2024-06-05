@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/userController");
-const DecodedToken = require("../controllers/DecodeToken");
+const UserController = require("../Controllers/userController");
+const DecodedToken = require("../Controllers/DecodeToken");
 
 router.post("/signup", UserController.signup);
 router.post("/login", UserController.login);

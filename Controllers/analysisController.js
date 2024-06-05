@@ -1,10 +1,10 @@
-const studentModel = require("../models/StudentModel");
+const studentModel = require("../Models/StudentModel");
 const mongoose = require("mongoose");
-const stateModel = require("../models/StateModel");
-const talukaModel = require("../models/TalukaModel");
-const districtModel = require("../models/DistrictModel");
-const cityModel = require("../models/CityModel");
-const schooltypeModel = require("../models/SchoolType");
+const stateModel = require("../Models/StateModel");
+const talukaModel = require("../Models/TalukaModel");
+const districtModel = require("../Models/DistrictModel");
+const cityModel = require("../Models/CityModel");
+const schooltypeModel = require("../Models/SchoolType");
 
 //admin
 module.exports.FilterStudentinGroup = async (req, res) => {

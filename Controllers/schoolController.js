@@ -1,9 +1,9 @@
-const SchoolModel = require("../models/SchoolModel");
-const schoolModel = require("../models/SchoolModel");
-const studentmodel = require("../models/StudentModel");
-const SchoolTypeModel = require("../models/SchoolType");
+const SchoolModel = require("../Models/SchoolModel");
+const schoolModel = require("../Models/SchoolModel");
+const studentmodel = require("../Models/StudentModel");
+const SchoolTypeModel = require("../Models/SchoolType");
 const { default: mongoose } = require("mongoose");
-const StudentModel = require("../models/StudentModel");
+const StudentModel = require("../Models/StudentModel");
 
 async function getSchool(req, res) {
   try {

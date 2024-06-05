@@ -1,4 +1,4 @@
-const StudentModel = require("../models/StudentModel");
+const StudentModel = require("../Models/StudentModel");
 const xlsx = require("xlsx");
 const mongoose = require("mongoose");
 // const multer = require("multer");
