@@ -10,6 +10,7 @@ import { Calendar } from "primereact/calendar";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { PredicatedDropoutServices } from "./PredicatedDropoutServices";
+import { ip } from "../../../Config/ip";
 
 export default function PredictDropoutDataTable() {
   const [deleterefresh, setdeleterefresh] = useState(true);
@@ -154,7 +155,7 @@ export default function PredictDropoutDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/promteStudent`, requestOptions)
+    fetch(`${ip}/promteStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -184,7 +185,7 @@ export default function PredictDropoutDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -309,7 +310,7 @@ export default function PredictDropoutDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../../Config/ip";
 
 const YearwiseLineChart = ({
   selectedCity,
@@ -93,7 +94,7 @@ const YearwiseLineChart = ({
     };
 
     fetch(
-      `http://localhost:9999/yearWiseData?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/yearWiseData?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())

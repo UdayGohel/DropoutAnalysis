@@ -9,6 +9,7 @@ import { Button } from "primereact/button";
 import { Calendar } from "primereact/calendar";
 import { InactiveStudentServices } from "./InactiveStudentServices";
 import { useSelector } from "react-redux";
+import { ip } from "../../../Config/ip";
 
 export default function InactiveStudent() {
   const [deleterefresh, setdeleterefresh] = useState(true);
@@ -92,7 +93,7 @@ export default function InactiveStudent() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -122,7 +123,7 @@ export default function InactiveStudent() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({

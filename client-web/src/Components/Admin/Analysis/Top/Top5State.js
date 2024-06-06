@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ip } from "../../../../Config/ip";
 
 const Top5State = () => {
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ const Top5State = () => {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/top5state`, requestOptions)
+    fetch(`${ip}/top5state`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setData(result[0].stateWiseCounts);

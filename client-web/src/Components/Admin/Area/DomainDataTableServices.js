@@ -1,6 +1,8 @@
+import { ip } from "../../../Config/ip";
+
 export const DomainDataTableServices = {
   getData() {
-    return fetch(`http://localhost:9999/stateWiseCount`)
+    return fetch(`${ip}/stateWiseCount`)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res);
@@ -23,18 +25,4 @@ export const DomainDataTableServices = {
   getCustomersXLarge() {
     return Promise.resolve(this.getData());
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

@@ -1,8 +1,10 @@
+import { ip } from "../../../Config/ip";
+
 export const ActiveStudentServices = {
   getData(selectedState, selectedDistrict, selectedTaluka, selectedCity) {
     console.log(selectedState, selectedDistrict, selectedTaluka, selectedCity);
     return fetch(
-      `http://localhost:9999/getChooseWiseStudents?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&status=3`
+      `${ip}/getChooseWiseStudents?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&status=3`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -38,18 +40,4 @@ export const ActiveStudentServices = {
       )
     );
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginValidationSchemas } from "../Schemas";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import image from "./../Assets/education.png";
 import { UserActions } from "../Store/UserData";
+import { ip } from "../Config/ip";
 const initialValues = {
   Email: "",
   Password: "",
@@ -28,7 +29,7 @@ const Login = () => {
       body: raw,
       redirect: "follow",
     };
-    fetch("http://localhost:9999/login", requestOptions)
+    fetch(`${ip}/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);

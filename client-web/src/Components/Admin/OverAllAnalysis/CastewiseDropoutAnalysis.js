@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const CastewiseDropoutAnalysis = ({
   selectedCity,
@@ -84,7 +85,7 @@ const CastewiseDropoutAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/FilterStudentinGroup/Caste?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/FilterStudentinGroup/Caste?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())
@@ -104,10 +105,17 @@ const CastewiseDropoutAnalysis = ({
         const percentages = datas.StudentsData.map((student, index) => {
           const Caste = student.Caste;
 
-          const totalStudent = datas.total.find((total) => total.Caste === Caste);
+          const totalStudent = datas.total.find(
+            (total) => total.Caste === Caste
+          );
 
           if (totalStudent) {
-            const percentage = parseFloat(((student.numOfStudent / totalStudent.numOfStudent) * 100).toFixed(2));
+            const percentage = parseFloat(
+              (
+                (student.numOfStudent / totalStudent.numOfStudent) *
+                100
+              ).toFixed(2)
+            );
             return percentage;
           } else {
             return 0;

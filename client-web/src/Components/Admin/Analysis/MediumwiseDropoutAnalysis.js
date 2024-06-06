@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const MediumwiseDropoutAnalysis = ({
   selectedCity,
@@ -84,7 +85,7 @@ const MediumwiseDropoutAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/mediumWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/mediumWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())

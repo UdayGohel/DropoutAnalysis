@@ -1,7 +1,9 @@
+import { ip } from "../../../Config/ip";
+
 export const DropoutStudentsServices = {
   getData(selectedState, selectedDistrict, selectedTaluka, selectedCity) {
     return fetch(
-      `http://localhost:9999/getChooseWiseStudents?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&status=1`
+      `${ip}/getChooseWiseStudents?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&status=1`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -36,18 +38,4 @@ export const DropoutStudentsServices = {
       )
     );
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

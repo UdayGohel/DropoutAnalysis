@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { ip } from "../../Config/ip";
 
 const SchoolDashboard = () => {
   const [data, setdata] = useState({});
@@ -16,10 +17,7 @@ const SchoolDashboard = () => {
       redirect: "follow",
     };
 
-    fetch(
-      `http://localhost:9999/schoolcount?School_ID=${userData.School._id}`,
-      requestOptions
-    )
+    fetch(`${ip}/schoolcount?School_ID=${userData.School._id}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -57,13 +55,15 @@ const SchoolDashboard = () => {
     <div className="m-5">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 grid-rows-3">
         {/* <Link to={"districtWiseSportsComplex"}> */}
-       
+
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">Total Students</div>
           <AnimatedCount finalCount={visible && data.students} />
         </div>
         <div className=" text-center rounded-lg bg-gray-300 ">
-          <div className="font-semibold p-5 text-2xl h-3/5">Total Male Students</div>
+          <div className="font-semibold p-5 text-2xl h-3/5">
+            Total Male Students
+          </div>
           <AnimatedCount finalCount={visible && data.malestudents} />
         </div>
         <div className=" text-center rounded-lg bg-gray-300 ">

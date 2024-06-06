@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { ip } from "../../../Config/ip";
 
 const AddStudentExcel = () => {
   const initialValues = {
@@ -38,7 +39,7 @@ const AddStudentExcel = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/addStudentExcel", requestOptions)
+    fetch(`${ip}/addStudentExcel`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

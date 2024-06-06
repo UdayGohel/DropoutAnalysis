@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import FetchReasons from "../../../API/FetchReasons";
 import Resources from "../../Admin/Remedies/Resouces";
+import { ip } from "../../../Config/ip";
 
 const Remedies = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const Remedies = () => {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/getReason?reason=${reason}`, requestOptions)
+    fetch(`${ip}/getReason?reason=${reason}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setReason(result.data[0]);
@@ -30,7 +31,7 @@ const Remedies = () => {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/customeSearch?q=${input}`, requestOptions)
+    fetch(`${ip}/customeSearch?q=${input}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -45,19 +46,19 @@ const Remedies = () => {
 
   return (
     <>
-    <div className="bg-[#f8f9fa] m-5 h-screen">
-      {/* <div className="flex " >
+      <div className="bg-[#f8f9fa] m-5 h-screen">
+        {/* <div className="flex " >
       <h2 className="font-bold text-lg m-1">Search By KeyWord : </h2>
       <input type="text" onChange={handleChange} value={input} className="border  border-gray-800 rounded-md w-1/3 focus:outline-gray-600 p-1.5" />
       </div> */}
-      {rea &&
-        rea.resources &&
-        rea.resources.map((item) => (
-          
+        {rea &&
+          rea.resources &&
+          rea.resources.map((item) => (
             <div className=" mx-auto mt-8 p-4 bg-gray-100 rounded shadow-md shadow-gray-600 w-2/3 space-y-2">
-
               <div className="flex items-center justify-center">
-                 <h2 className="font-bold text-3xl text-gray-800 ">Remedies Resources  </h2>
+                <h2 className="font-bold text-3xl text-gray-800 ">
+                  Remedies Resources{" "}
+                </h2>
               </div>
 
               <div className="flex">
@@ -85,7 +86,7 @@ const Remedies = () => {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href={`http://localhost:9999/resources/${e.name}`}
+                          href={`${ip}/resources/${e.name}`}
                           className="text-blue-700 hover:text-purple-800"
                         >
                           {e.name}
@@ -107,7 +108,7 @@ const Remedies = () => {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href={`http://localhost:9999/resources/${e.name}`}
+                          href={`${ip}/resources/${e.name}`}
                           className="text-blue-700 hover:text-purple-800"
                         >
                           {e.name}
@@ -129,7 +130,7 @@ const Remedies = () => {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href={`http://localhost:9999/resources/${e.name}`}
+                          href={`${ip}/resources/${e.name}`}
                           className="text-blue-700 hover:text-purple-800"
                         >
                           {e.name}
@@ -161,9 +162,8 @@ const Remedies = () => {
                 </ui>
               </div>
             </div>
-         
-        ))}
-        </div>
+          ))}
+      </div>
     </>
   );
 };

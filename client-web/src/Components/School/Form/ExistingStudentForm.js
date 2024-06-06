@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { ip } from "../../../Config/ip";
 
 const ExistingStudentForm = () => {
   const [uidInput, setUidInput] = useState("");
@@ -18,7 +19,7 @@ const ExistingStudentForm = () => {
       redirect: "follow",
     };
     // const uidNumber = parseInt(uidInput, 10);
-    fetch(`http://localhost:9999/getStudent?_id=${uidInput}`, requestOptions)
+    fetch(`${ip}/getStudent?_id=${uidInput}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -39,10 +40,7 @@ const ExistingStudentForm = () => {
       redirect: "follow",
     };
     const aadharNumber = parseInt(aadharInput, 10);
-    fetch(
-      `http://localhost:9999/getStudent?AadharNumber=${aadharNumber}`,
-      requestOptions
-    )
+    fetch(`${ip}/getStudent?AadharNumber=${aadharNumber}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -64,7 +62,7 @@ const ExistingStudentForm = () => {
     };
 
     fetch(
-      `http://localhost:9999/addExistingStudent?schoolID=${sId}&standard=${selectedOption}&studentId=${selectedStudent._id}`,
+      `${ip}/addExistingStudent?schoolID=${sId}&standard=${selectedOption}&studentId=${selectedStudent._id}`,
       requestOptions
     )
       .then((response) => response.text())

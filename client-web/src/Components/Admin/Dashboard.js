@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { ip } from "../../Config/ip";
 
 const AdminDashboard = () => {
   const [data, setdata] = useState({});
@@ -14,7 +15,7 @@ const AdminDashboard = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/AdmindashboardCount", requestOptions)
+    fetch(`${ip}/AdmindashboardCount`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -62,18 +63,19 @@ const AdminDashboard = () => {
           <div className="font-semibold p-5 text-2xl h-3/5">Total District</div>
           <AnimatedCount finalCount={visible && data.districts} />
         </div>
-       
 
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">Total Talukas</div>
           <AnimatedCount finalCount={visible && data.taluka} />
         </div>
-       
+
         <div className=" text-center rounded-lg bg-gray-300 ">
-          <div className="font-semibold p-5 text-2xl h-3/5">Total Village/Town</div>
+          <div className="font-semibold p-5 text-2xl h-3/5">
+            Total Village/Town
+          </div>
           <AnimatedCount finalCount={visible && data.city} />
         </div>
-        
+
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">Total Students</div>
           <AnimatedCount finalCount={visible && data.students} />
@@ -106,15 +108,14 @@ const AdminDashboard = () => {
           </div>
           <AnimatedCount finalCount={visible && data.activestudents} />
         </div>
-        
+
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Total Inactive Students
           </div>
           <AnimatedCount finalCount={visible && data.inactivestudents} />
         </div>
-        
-      
+
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Total Dropout Students without Reason
@@ -147,22 +148,19 @@ const AdminDashboard = () => {
           <AnimatedCount finalCount={visible && data.semigovtschools} />
         </div>
 
-        
-
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Total Private Schools
           </div>
           <AnimatedCount finalCount={visible && data.privateschools} />
         </div>
-       
+
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Total InterNational Schools
           </div>
           <AnimatedCount finalCount={visible && data.internationalschools} />
         </div>
-      
       </div>
     </div>
   );

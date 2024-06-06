@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const StandardGenderwiseAnalysis = ({
   selectedCity,
@@ -81,7 +82,7 @@ const StandardGenderwiseAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/FilterStudentinGroupByTwo?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school&type1=Standard&type2=Gender`,
+      `${ip}/FilterStudentinGroupByTwo?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school&type1=Standard&type2=Gender`,
       requestOptions
     )
       .then((response) => response.json())

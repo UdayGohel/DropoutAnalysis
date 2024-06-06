@@ -8,6 +8,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { schoolvalidationSchema } from "../../../Schemas";
 import Swal from "sweetalert2";
+import { ip } from "../../../Config/ip";
 
 const AddSchoolForm = () => {
   const [stateName, setStateName] = useState([]);
@@ -63,10 +64,7 @@ const AddSchoolForm = () => {
         redirect: "follow",
       };
 
-      const response = await fetch(
-        "http://localhost:9999/addSchool",
-        requestOptions
-      );
+      const response = await fetch(`${ip}/addSchool`, requestOptions);
       const result = await response.json();
       console.log(result);
       if (result.rcode === 200) {
@@ -91,10 +89,7 @@ const AddSchoolForm = () => {
             redirect: "follow",
           };
 
-          const response = await fetch(
-            "http://localhost:9999/signup",
-            requestOptions
-          );
+          const response = await fetch(`${ip}/signup`, requestOptions);
           const result2 = await response.json();
           console.log(result2);
           if (result2.rcode === 200) {

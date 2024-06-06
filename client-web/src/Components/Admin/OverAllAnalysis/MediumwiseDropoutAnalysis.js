@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const MediumwiseDropoutAnalysis = ({
   selectedCity,
@@ -84,7 +85,7 @@ const MediumwiseDropoutAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/mediumWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/mediumWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())
@@ -104,10 +105,17 @@ const MediumwiseDropoutAnalysis = ({
         const percentages = datas.StudentsData.map((student, index) => {
           const schoolType = student.schoolType;
 
-          const totalStudent = datas.total.find((total) => total.schoolType === schoolType);
+          const totalStudent = datas.total.find(
+            (total) => total.schoolType === schoolType
+          );
 
           if (totalStudent) {
-            const percentage = parseFloat(((student.numOfStudent / totalStudent.numOfStudent) * 100).toFixed(2));
+            const percentage = parseFloat(
+              (
+                (student.numOfStudent / totalStudent.numOfStudent) *
+                100
+              ).toFixed(2)
+            );
             return percentage;
           } else {
             return 0;

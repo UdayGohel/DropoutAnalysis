@@ -1,7 +1,9 @@
+import { ip } from "../../../Config/ip";
+
 export const PredicatedDropoutServices = {
   getData(id) {
     console.log(id);
-    return fetch(`http://localhost:9999/getPrediction?schoolId=${id}`)
+    return fetch(`${ip}/getPrediction?schoolId=${id}`)
       .then((res) => res.json())
       .then((res) => {
         // console.log(res.data);
@@ -25,18 +27,4 @@ export const PredicatedDropoutServices = {
   getCustomersXLarge(id) {
     return Promise.resolve(this.getData(id));
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

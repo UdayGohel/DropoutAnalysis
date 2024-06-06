@@ -14,6 +14,7 @@ import FetchCity from "../../../API/FetchCity";
 
 import { AuthorityActiveServices } from "./AuthorityActiveServices";
 import { useSelector } from "react-redux";
+import { ip } from "../../../Config/ip";
 export default function AuthorityActiveStudents() {
   const [deleterefresh, setdeleterefresh] = useState(true);
   const [customers, setCustomers] = useState(null);
@@ -183,7 +184,7 @@ export default function AuthorityActiveStudents() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/promteStudent`, requestOptions)
+    fetch(`${ip}/promteStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -213,7 +214,7 @@ export default function AuthorityActiveStudents() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -338,7 +339,7 @@ export default function AuthorityActiveStudents() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({

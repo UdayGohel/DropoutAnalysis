@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PrimeIcons } from "primereact/api"; // Import PrimeIcons
 import Swal from "sweetalert2";
+import { ip } from "../../../Config/ip";
 
 const AddState = () => {
   const [Name, setName] = useState("");
@@ -29,10 +30,7 @@ const AddState = () => {
         redirect: "follow",
       };
 
-      const response = await fetch(
-        "http://localhost:9999/addState",
-        requestOptions
-      );
+      const response = await fetch(`${ip}/addState`, requestOptions);
       const result = await response.json();
       console.log(result);
       if (result.rcode === 200) {
@@ -55,10 +53,7 @@ const AddState = () => {
             redirect: "follow",
           };
 
-          const response = await fetch(
-            "http://localhost:9999/signup",
-            requestOptions
-          );
+          const response = await fetch(`${ip}/signup`, requestOptions);
           const result2 = await response.json();
           console.log(result2);
           if (result2.rcode === 200) {

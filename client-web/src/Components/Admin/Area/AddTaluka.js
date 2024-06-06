@@ -5,6 +5,7 @@ import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { PrimeIcons } from "primereact/api"; // Import PrimeIcons
 import Swal from "sweetalert2";
+import { ip } from "../../../Config/ip";
 
 const AddTaluka = () => {
   const [stateName, setStateName] = useState([]);
@@ -40,10 +41,7 @@ const AddTaluka = () => {
         redirect: "follow",
       };
 
-      const response = await fetch(
-        "http://localhost:9999/addTalukas",
-        requestOptions
-      );
+      const response = await fetch(`${ip}/addTalukas`, requestOptions);
       const result = await response.json();
       console.log(result);
       if (result.rcode === 200) {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const ReasonAreawiseAnalysis = ({
   selectedCity,
@@ -81,7 +82,7 @@ const ReasonAreawiseAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/areaAndReasonWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/areaAndReasonWise?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())

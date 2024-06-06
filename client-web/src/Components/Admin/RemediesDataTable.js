@@ -8,6 +8,7 @@ import { Button } from "primereact/button";
 import { Calendar } from "primereact/calendar";
 
 import { ResourcesServices } from "./RemediesServices";
+import { ip } from "../../Config/ip";
 export default function RemediesDataTable() {
   const [deleterefresh, setdeleterefresh] = useState(true);
   const [customers, setCustomers] = useState(null);
@@ -307,7 +308,7 @@ export default function RemediesDataTable() {
                                   <a
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    href={`http://localhost:9999/resources/${pdfItem.file}`}
+                                    href={`${ip}/resources/${pdfItem.file}`}
                                     className="text-blue-700 hover:text-purple-800"
                                   >
                                     {pdfItem.name}
@@ -323,7 +324,7 @@ export default function RemediesDataTable() {
                                   <a
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    href={`http://localhost:9999/resources/${pptxItem.file}`}
+                                    href={`${ip}/resources/${pptxItem.file}`}
                                     className="text-blue-700 hover:text-purple-800"
                                   >
                                     {pptxItem.name}
@@ -340,7 +341,7 @@ export default function RemediesDataTable() {
                                   <a
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    href={`http://localhost:9999/resources/${videoItem.file}`}
+                                    href={`${ip}/resources/${videoItem.file}`}
                                     className="text-blue-700 hover:text-purple-800"
                                   >
                                     {videoItem.name}

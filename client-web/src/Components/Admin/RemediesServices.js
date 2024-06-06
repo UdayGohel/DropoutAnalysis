@@ -1,7 +1,9 @@
+import { ip } from "../../Config/ip";
+
 export const ResourcesServices = {
   getData(selectedState, selectedDistrict, selectedTaluka, selectedCity) {
     console.log(selectedDistrict);
-    return fetch(`http://localhost:9999/getReason`)
+    return fetch(`${ip}/getReason`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res.data);
@@ -36,18 +38,4 @@ export const ResourcesServices = {
       )
     );
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../../Config/ip";
 
 const DropoutReasonwiseTrend = ({
   selectedCity,
@@ -111,7 +112,7 @@ const DropoutReasonwiseTrend = ({
     };
 
     fetch(
-      `http://localhost:9999/reasonYearTrend?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}`,
+      `${ip}/reasonYearTrend?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}`,
       requestOptions
     )
       .then((response) => response.json())

@@ -1,8 +1,10 @@
+import { ip } from "../../../Config/ip";
+
 export const AdminSchoolServices = {
   getData(selectedState, selectedDistrict, selectedTaluka, selectedCity) {
     console.log(selectedDistrict);
     return fetch(
-      `http://localhost:9999/getSchool` +
+      `${ip}/getSchool` +
         (selectedState && `?State=${selectedState}`) +
         (selectedDistrict && `&District=${selectedDistrict}`) +
         (selectedTaluka && `&Taluka=${selectedTaluka}`) +
@@ -42,18 +44,4 @@ export const AdminSchoolServices = {
       )
     );
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };

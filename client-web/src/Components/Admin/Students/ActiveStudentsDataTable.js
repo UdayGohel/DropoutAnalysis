@@ -13,6 +13,7 @@ import FetchState from "../../../API/FetchState";
 import FetchDistrict from "../../../API/FetchDistrict";
 import FetchTaluka from "../../../API/FetchTaluka";
 import FetchCity from "../../../API/FetchCity";
+import { ip } from "../../../Config/ip";
 export default function ActiveStudentsDataTable() {
   const [deleterefresh, setdeleterefresh] = useState(true);
   const [customers, setCustomers] = useState(null);
@@ -178,7 +179,7 @@ export default function ActiveStudentsDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/promteStudent`, requestOptions)
+    fetch(`${ip}/promteStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -208,7 +209,7 @@ export default function ActiveStudentsDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -333,7 +334,7 @@ export default function ActiveStudentsDataTable() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({

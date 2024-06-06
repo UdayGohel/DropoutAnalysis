@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { ip } from "../../../Config/ip";
 
 const DisablitywiseDropoutAnalysis = ({
   selectedCity,
@@ -84,7 +85,7 @@ const DisablitywiseDropoutAnalysis = ({
     };
 
     fetch(
-      `http://localhost:9999/FilterStudentinGroup/Disablity?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
+      `${ip}/FilterStudentinGroup/Disablity?state=${selectedState}&district=${selectedDistrict}&city=${selectedCity}&taluka=${selectedTaluka}&school`,
       requestOptions
     )
       .then((response) => response.json())
@@ -101,15 +102,24 @@ const DisablitywiseDropoutAnalysis = ({
         //   );
         // });
 
-        const categories = datas.StudentsData.map((s) => "Disability " + s.Disablity);
+        const categories = datas.StudentsData.map(
+          (s) => "Disability " + s.Disablity
+        );
 
         const percentages = datas.StudentsData.map((student, index) => {
           const Disability = student.Disablity;
 
-          const totalStudent = datas.total.find((total) => total.Disablity === Disability);
+          const totalStudent = datas.total.find(
+            (total) => total.Disablity === Disability
+          );
 
           if (totalStudent) {
-            const percentage = parseFloat(((student.numOfStudent / totalStudent.numOfStudent) * 100).toFixed(2));
+            const percentage = parseFloat(
+              (
+                (student.numOfStudent / totalStudent.numOfStudent) *
+                100
+              ).toFixed(2)
+            );
             return percentage;
           } else {
             return 0;

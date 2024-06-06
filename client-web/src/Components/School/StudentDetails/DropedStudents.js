@@ -10,6 +10,7 @@ import { Calendar } from "primereact/calendar";
 import { DropedStudentsServices } from "./DropoutStudentServices";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { ip } from "../../../Config/ip";
 export default function DropedStudents() {
   const [deleterefresh, setdeleterefresh] = useState(true);
   const [customers, setCustomers] = useState(null);
@@ -223,7 +224,7 @@ export default function DropedStudents() {
     //   method: "GET",
     //   redirect: "follow",
     // };
-    // fetch(`http://localhost:9999/getReason?reason=${reason}`, requestOptions)
+    // fetch(`${ip}/getReason?reason=${reason}`, requestOptions)
     //   .then((response) => response.json())
     //   .then((result) => {
     //     console.log(result);
@@ -264,7 +265,7 @@ export default function DropedStudents() {
               {Reason.resources.map((resource, index) => (
                 <a
                   key={index}
-                  href={`http://localhost:9999/resources/${resource.file}`}
+                  href={`${ip}/resources/${resource.file}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

@@ -1,6 +1,8 @@
+import { ip } from "../../../Config/ip";
+
 export const StatewiseDropoutAnalysisServices = {
   getData() {
-    return fetch("http://localhost:9999/statewiseDropout")
+    return fetch(`${ip}/statewiseDropout`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

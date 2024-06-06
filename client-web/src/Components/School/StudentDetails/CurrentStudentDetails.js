@@ -10,6 +10,7 @@ import { Calendar } from "primereact/calendar";
 import { Link } from "react-router-dom";
 import { CurrentStudentServices } from "./CuurentStudentServices";
 import { useSelector } from "react-redux";
+import { ip } from "../../../Config/ip";
 
 export default function CurrentStudent() {
   const [deleterefresh, setdeleterefresh] = useState(true);
@@ -44,7 +45,7 @@ export default function CurrentStudent() {
   //           headers: myHeaders,
   //           redirect: "follow",
   //         };
-  //         fetch(`http://localhost:9999/deleteblog/${rowdata._id}`, requestOptions)
+  //         fetch(`${ip}/deleteblog/${rowdata._id}`, requestOptions)
   //           .then((response) => response.text())
   //           .then((result) => {
   //             setdeleterefresh(!deleterefresh);
@@ -183,7 +184,7 @@ export default function CurrentStudent() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/promteStudent`, requestOptions)
+    fetch(`${ip}/promteStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -213,7 +214,7 @@ export default function CurrentStudent() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -338,7 +339,7 @@ export default function CurrentStudent() {
       redirect: "follow",
     };
 
-    fetch(`http://localhost:9999/deactivateStudent`, requestOptions)
+    fetch(`${ip}/deactivateStudent`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         Swal.fire({
@@ -425,7 +426,7 @@ export default function CurrentStudent() {
     };
 
     fetch(
-      `http://localhost:9999/updateResult?result=${resultText}&id=${selectedStudentForAddResult._id}`,
+      `${ip}/updateResult?result=${resultText}&id=${selectedStudentForAddResult._id}`,
       requestOptions
     )
       .then((response) => response.text())

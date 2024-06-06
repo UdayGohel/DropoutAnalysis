@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { ip } from "../../Config/ip";
 
 const AuthorityDashboard = () => {
   const [data, setdata] = useState({});
@@ -14,10 +15,7 @@ const AuthorityDashboard = () => {
       redirect: "follow",
     };
 
-    fetch(
-      `http://localhost:9999/authoritycount?state=${userData.State._id}`,
-      requestOptions
-    )
+    fetch(`${ip}/authoritycount?state=${userData.State._id}`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -55,7 +53,7 @@ const AuthorityDashboard = () => {
     <div className="m-5">
       <div className="grid grid-cols-1 gap-4 grid-rows-6 lg:grid-cols-3 lg:gap-8">
         {/* <Link to={"districtWiseSportsComplex"}> */}
-        
+
         {/* <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">Total States</div>
           <AnimatedCount finalCount={visible && data.states} />
@@ -70,9 +68,11 @@ const AuthorityDashboard = () => {
           <div className="font-semibold p-5 text-2xl h-3/5">Total Talukas</div>
           <AnimatedCount finalCount={visible && data.taluka} />
         </div>
-       
+
         <div className=" text-center rounded-lg bg-gray-300 ">
-          <div className="font-semibold p-5 text-2xl h-3/5">Total Village/Town</div>
+          <div className="font-semibold p-5 text-2xl h-3/5">
+            Total Village/Town
+          </div>
           <AnimatedCount finalCount={visible && data.city} />
         </div>
 
@@ -102,9 +102,6 @@ const AuthorityDashboard = () => {
           <AnimatedCount finalCount={visible && data.otherstudents} />
         </div>
 
-       
-
-
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Active Students
@@ -112,14 +109,12 @@ const AuthorityDashboard = () => {
           <AnimatedCount finalCount={visible && data.activestudents} />
         </div>
 
-        
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
             Total Inactive Students
           </div>
           <AnimatedCount finalCount={visible && data.inactivestudents} />
         </div>
-        
 
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">
@@ -135,9 +130,6 @@ const AuthorityDashboard = () => {
           <AnimatedCount finalCount={visible && data.dropwithreason} />
         </div>
 
-       
-
-        
         <div className=" text-center rounded-lg bg-gray-300 ">
           <div className="font-semibold p-5 text-2xl h-3/5">Total Schools</div>
           <AnimatedCount finalCount={visible && data.schools} />
@@ -172,8 +164,6 @@ const AuthorityDashboard = () => {
           </div>
           <AnimatedCount finalCount={visible && data.privateschools.length} />
         </div>
-
-        
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+import { ip } from "../Config/ip";
+
 const FetchCity = async (state, district, taluka, cityType) => {
   console.log(state, district, taluka);
   var requestOptions = {
@@ -5,7 +7,7 @@ const FetchCity = async (state, district, taluka, cityType) => {
     redirect: "follow",
   };
   const response = await fetch(
-    `http://localhost:9999/getCities?state=${state || null}&district=${
+    `${ip}/getCities?state=${state || null}&district=${
       district || null
     }&taluka=${taluka || null}`,
     requestOptions

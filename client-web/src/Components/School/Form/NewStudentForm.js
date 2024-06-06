@@ -11,6 +11,7 @@ import FetchDistrict from "../../../API/FetchDistrict";
 import FetchTaluka from "../../../API/FetchTaluka";
 import FetchCity from "../../../API/FetchCity";
 import { useSelector } from "react-redux";
+import { ip } from "../../../Config/ip";
 
 const initialValues = {
   firstName: "",
@@ -142,7 +143,7 @@ const NewStudentForm = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/addStudent", requestOptions)
+    fetch(`${ip}/addStudent`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         Swal.fire({

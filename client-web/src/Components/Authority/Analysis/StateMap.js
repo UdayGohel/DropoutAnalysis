@@ -24,6 +24,7 @@ import Tamilnadu from "fusionmaps/maps/fusioncharts.tamilnadu";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import FetchDistrict from "../../../API/FetchDistrict";
 import FetchReasons from "../../../API/FetchReasons";
+import { ip } from "../../../Config/ip";
 
 // Step 7 - Adding the map and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(
@@ -308,7 +309,7 @@ const StateMap = () => {
       redirect: "follow",
     };
     fetch(
-      `http://localhost:9999/DistrictWiseData?state=${stateId}&reason=${selectedReasons}&year=${selecYear}&caste=${selectedcast}&gender=${selectedGender}&standard=${selectedstandard}`,
+      `${ip}/DistrictWiseData?state=${stateId}&reason=${selectedReasons}&year=${selecYear}&caste=${selectedcast}&gender=${selectedGender}&standard=${selectedstandard}`,
       requestOptions
     )
       .then((response) => response.json())

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ip } from "../../../Config/ip";
 
 const Remediesresources = () => {
   const [reason, setReason] = useState([]);
@@ -16,7 +17,7 @@ const Remediesresources = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/getReason", requestOptions)
+    fetch(`${ip}/getReason`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         setReason(result.data);
@@ -70,7 +71,7 @@ const Remediesresources = () => {
               resources.resources.map((resource, index) => (
                 <a
                   key={index}
-                  href={`http://localhost:9999/resources/${resource.file}`}
+                  href={`${ip}/resources/${resource.file}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

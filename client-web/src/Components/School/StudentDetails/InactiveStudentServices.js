@@ -1,8 +1,8 @@
+import { ip } from "../../../Config/ip";
+
 export const InactiveStudentServices = {
   getData(id) {
-    return fetch(
-      `http://localhost:9999/getSchoolWiseStudents?schoolId=${id}&status=0`
-    )
+    return fetch(`${ip}/getSchoolWiseStudents?schoolId=${id}&status=0`)
       .then((res) => res.json())
       .then((res) => {
         return res.data;
@@ -24,18 +24,4 @@ export const InactiveStudentServices = {
   getCustomersXLarge(id) {
     return Promise.resolve(this.getData(id));
   },
-
-  // getCustomers(params) {
-  //   const queryParams = params
-  //     ? Object.keys(params)
-  //         .map(
-  //           (k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k])
-  //         )
-  //         .join("&")
-  //     : "";
-
-  //   return fetch("http://localhost:9999/getSportsComplex" + queryParams).then(
-  //     (res) => res.json()
-  //   );
-  // },
 };
